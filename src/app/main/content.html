@@ -1,0 +1,15 @@
+<div class="header">
+	<h2>To Do List</h2>
+	<input type="text" ng-model="itemName" placeholder="Name of item"/>
+	<span ng-click="main.addItem(this)" class="addBtn">Add</span>
+	<div class="second-control-box">
+		<div class="checkbox">
+			<label><input type="checkbox" ng-change="main.selectAll(this, $event)" ng-model="isSelectAll">Select All</label>
+			<span ng-click="main.deleteItem(this)" class="addBtn" ng-class="{'hidden' : selectedItems.length == 0}">Delete</span>
+		</div>
+	</div>
+</div>
+
+<ul>
+	<li ng-repeat="item in listItem" ng-click="main.select(this, item)" ng-class="{'checked' : item.checked == true }">{{item.name}}</li>
+</ul>
